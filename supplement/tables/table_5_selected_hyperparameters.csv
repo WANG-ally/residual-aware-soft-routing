@@ -1,0 +1,6 @@
+Dataset,Seasonal period,Ridge window,Ridge alpha,LightGBM window,Leaves,Learning rate,Trees,Feature fraction,Soft-target temperature,Residual lag,Logistic C,Router features,Local weighting selected,Neighbor k,Local exponent alpha,Base threshold,Controller eta
+NN5 Daily,7,56,1000.0,56,31,0.03,300,0.8,0.05,8,0.01,28,False,5,0.0,0.5368568967339237,0.001
+Pedestrian Hourly,24,168,0.0001,168,31,0.05,600,0.8,0.2,16,10.0,46,False,5,0.0,0.5793447089640886,0.001
+M4 Hourly,24,168,0.0001,168,31,0.05,600,1.0,0.02,16,0.01,46,True,11,0.5,0.5438374499553966,0.001
+Electricity Hourly,24,168,100000.0,168,31,0.05,600,0.8,0.05,1,0.01,16,True,21,4.0,0.5161269470920586,0.05
+Weather Daily,7,56,0.0,28,31,0.03,600,0.8,0.5,8,0.1,30,False,5,0.0,0.5540767908096313,0.05

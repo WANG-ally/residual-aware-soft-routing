@@ -1,0 +1,6 @@
+Dataset,Domain,Frequency,Series,Formal test observations,Sampling rule,Public archive DOI,Original provenance,License
+NN5 Daily,Banking,Daily,111,13209,All 111 series,10.5281/zenodo.4656117,NN5 forecasting competition; UK ATM withdrawals,CC BY 4.0
+Pedestrian Hourly,Transport,Hourly,66,469884,All 66 series,10.5281/zenodo.4656626,City of Melbourne pedestrian sensors,CC BY 4.0
+M4 Hourly,Multiple,Hourly,414,56337,All 414 hourly series,10.5281/zenodo.4656589,M4 forecasting competition,CC BY 4.0
+Electricity Hourly,Energy,Hourly,321,1266666,All 321 hourly series,10.5281/zenodo.4656140,UCI ElectricityLoadDiagrams20112014,CC BY 4.0
+Weather Daily,Nature,Daily,500,1105774,Fixed preregistered type-stratified 500-series sample,10.5281/zenodo.4654822,Australian Bureau of Meteorology via bomrang,CC BY 4.0

@@ -1,0 +1,25 @@
+name: sci-routing
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11.15
+  - pip=26.1.2
+  - jupyterlab=4.6.1
+  - ipykernel=7.3.0
+  - numpy=2.4.6
+  - pandas=3.0.3
+  - pyarrow=24.0.0
+  - scipy=1.17.1
+  - scikit-learn=1.9.0
+  - lightgbm=4.6.0
+  - statsmodels=0.14.6
+  - matplotlib=3.11.0
+  - seaborn=0.13.2
+  - pyyaml=6.0.3
+  - joblib=1.5.3
+  - tqdm=4.68.4
+  - pytest=9.1.1
+  - psutil=7.2.2
+  - openpyxl=3.1.5
+  - tabulate=0.10.0

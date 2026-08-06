@@ -1,0 +1,6 @@
+Dataset,Adaptive RMSSE,Adaptive Ridge usage,Absolute deviation,Constraint,Static RMSSE,Static Ridge usage,Adaptive vs static RMSSE
+NN5 Daily,0.772689,66.833%,3.167 pp,Fail,0.772264,63.858%,+0.055%
+Pedestrian Hourly,0.398511,70.138%,0.138 pp,Pass,0.398695,72.340%,-0.046%
+M4 Hourly,1.082009,71.875%,1.875 pp,Pass,1.055503,74.651%,+2.511%
+Electricity Hourly,0.583202,70.004%,0.004 pp,Pass,0.580976,71.438%,+0.383%
+Weather Daily,0.691972,70.004%,0.004 pp,Pass,0.689946,69.675%,+0.294%

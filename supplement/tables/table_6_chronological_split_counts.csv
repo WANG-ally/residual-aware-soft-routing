@@ -1,0 +1,6 @@
+Dataset,Series,Total observations used,base_train,router_train,calibration,test,Sampling policy
+NN5 Daily,111,87801,52614,13209,8769,13209,all 111 series
+Pedestrian Hourly,66,3132346,1879382,469861,313219,469884,all 66 series
+M4 Hourly,414,373372,223692,56337,37006,56337,all 414 hourly series
+Electricity Hourly,321,8443584,5066022,1266666,844230,1266666,all 321 hourly series
+Weather Daily,500,7370025,4421760,1105616,736875,1105774,fixed preregistered type-stratified 500-series sample

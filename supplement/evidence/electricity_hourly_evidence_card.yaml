@@ -1,0 +1,159 @@
+dataset_id: electricity_hourly
+role_in_study: completed_core_dataset
+formal_test_status: completed_once_and_locked
+formal_test_run_number: 1
+formal_test_rows: 1266666
+series_count: 321
+relative_time_points_per_series: 3946
+primary_method: adaptive_full_router
+primary_mean_RMSSE: 0.5832021569806601
+primary_rank_among_14_methods: 10
+target_simple_coverage: 0.7
+observed_simple_coverage: 0.7000377368619668
+absolute_coverage_violation: 3.773686196684167e-05
+allowed_absolute_coverage_violation: 0.02
+coverage_constraint_passed: true
+static_full_router:
+  mean_RMSSE: 0.5809764960644745
+  simple_coverage: 0.7143816917798378
+  absolute_coverage_violation: 0.0143816917798378
+  coverage_constraint_passed: true
+hard_random_forest_same_features:
+  mean_RMSSE: 0.558159111862416
+  rank: 3
+  simple_coverage: 0.701246421708643
+  absolute_coverage_violation: 0.001246421708643
+  coverage_constraint_passed: true
+holm_and_bootstrap_support_better_than:
+- seasonal_naive
+holm_and_bootstrap_support_worse_than:
+- coverage_constrained_oracle
+- hard_random_forest_same_features
+- unconstrained_oracle
+- hard_aalf_like_router
+- static_full_router
+- class_weight_only
+- hard_logistic_same_features
+holm_significant_but_mean_bootstrap_discordant_or_inconclusive:
+- equal_weight_average
+- soft_targets_only
+- ridge_only
+- lightgbm_only
+- residual_features_only
+noninferior_to_at_1_percent_by_wilcoxon_and_bootstrap:
+- ridge_only
+- residual_features_only
+- class_weight_only
+- hard_logistic_same_features
+- static_full_router
+- soft_targets_only
+key_pairwise_comparisons:
+- comparator: ridge_only
+  relative_difference_percent_primary_minus_comparator: -0.2170140961421282
+  paired_bootstrap_ci_difference:
+  - -0.0033113140612095
+  - 0.0012112656268391
+  holm_adjusted_p_value: 4.808416446491517e-10
+  significant_after_holm: true
+  rank_direction: primary_better
+  bootstrap_mean_direction: inconclusive
+  holm_and_bootstrap_support_direction: false
+  rank_biserial_primary_better: 0.4168456492714924
+  noninferior_at_1_percent_by_both_criteria: true
+- comparator: lightgbm_only
+  relative_difference_percent_primary_minus_comparator: -6.265919787609722
+  paired_bootstrap_ci_difference:
+  - -0.0783131477099643
+  - -0.0097083060013841
+  holm_adjusted_p_value: 0.0002422760905334
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: primary_better
+  holm_and_bootstrap_support_direction: false
+  rank_biserial_primary_better: -0.2475377798417213
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: equal_weight_average
+  relative_difference_percent_primary_minus_comparator: 0.1990238682186499
+  paired_bootstrap_ci_difference:
+  - -0.0158259415407519
+  - 0.0132875197048874
+  holm_adjusted_p_value: 1.2078827475398117e-27
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: inconclusive
+  holm_and_bootstrap_support_direction: false
+  rank_biserial_primary_better: -0.7144405100520501
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: hard_random_forest_same_features
+  relative_difference_percent_primary_minus_comparator: 4.486721543375447
+  paired_bootstrap_ci_difference:
+  - 0.0227017873572181
+  - 0.0276479606613004
+  holm_adjusted_p_value: 2.9072217988328942e-53
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.999961301058416
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: static_full_router
+  relative_difference_percent_primary_minus_comparator: 0.3830896656340051
+  paired_bootstrap_ci_difference:
+  - 0.0008899320427556
+  - 0.003391129825857
+  holm_adjusted_p_value: 1.4168182736643649e-12
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.4720303399702018
+  noninferior_at_1_percent_by_both_criteria: true
+supported_claims:
+- The adaptive controller achieved the registered 70 percent Ridge-coverage constraint
+  on Electricity Hourly.
+- Adaptive control reduced the static router's absolute coverage violation from about
+  1.4382 to 0.0038 percentage points; both methods were inside the registered two-percentage-point
+  tolerance.
+- The adaptive full router had lower RMSSE than seasonal naive, with aligned Holm-Wilcoxon
+  and paired-bootstrap support.
+- At the registered 1 percent margin, both inferential criteria supported noninferiority
+  to Ridge-only, residual-features-only, class-weight-only, hard-logistic, static-full-router,
+  and soft-targets-only.
+- Aligned inference favored the random-forest router, AALF-like router, static full
+  router, class-weight-only, and hard-logistic router over the adaptive full router.
+- Relative to the static full router, adaptive control moved coverage much closer
+  to the target but increased mean RMSSE by about 0.38 percent, demonstrating an accuracy-coverage
+  trade-off.
+unsupported_claims:
+- The proposed method was the most accurate method on Electricity Hourly.
+- The proposed method outperformed the random-forest router, the AALF-like router,
+  the static full router, class-weight-only, or the hard-logistic router.
+- The proposed method was directionally superior to LightGBM-only, residual-features-only,
+  Ridge-only, equal-weight averaging, or soft-targets-only; the registered rank and
+  mean-bootstrap rules were discordant or inconclusive for these comparisons.
+- The random-forest or static full router failed the registered coverage tolerance;
+  both satisfied the two-percentage-point rule.
+- Coverage-constrained or unconstrained oracle results represent deployable forecasting
+  methods.
+required_reporting:
+- Report rank 10 of 14, mean RMSSE 0.583202, Ridge coverage 0.700038, absolute coverage
+  deviation 0.000038, and the passed coverage constraint.
+- Report that the random-forest router ranked 3 with mean RMSSE 0.558159, Ridge coverage
+  0.701246, passed the coverage tolerance, and was supported as more accurate than
+  the adaptive method.
+- Report that the static full router had mean RMSSE 0.580976 and Ridge coverage 0.714382;
+  it also passed the tolerance and was supported as more accurate than adaptive control.
+- Report that AALF-like ranked 4 with mean RMSSE 0.578538 and Ridge coverage 0.696366,
+  and was supported as more accurate.
+- Report the rank-versus-mean-bootstrap discordance or uncertainty for equal-weight
+  averaging, soft-targets-only, Ridge-only, LightGBM-only, and residual-features-only.
+- Present oracle methods as post-hoc diagnostic lower bounds only.
+- Do not rerun, retune, or exclude Electricity Hourly after observing the formal test.
+raw_test_data_reopened_for_closeout: false
+per_timestamp_predictions_reopened_for_closeout: false
+per_series_metrics_reopened_for_closeout: false
+models_loaded_for_closeout: false
+parameters_changed_after_test: false
+formal_test_authorization_id: fd492a954151e49bba0a9ff14b574fe9379780bed843364acc7eff2a30f2edc8
+final_freeze_id: 3664f0711faa5625278e05ac2d45a03c4d7561667f4b2579830c624954386f29
+evaluator_sha256: 8d9d76e472527cedb690bf1a92ca0297bd9e15f149a212b889820ac152bb4f61

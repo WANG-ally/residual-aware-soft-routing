@@ -1,0 +1,6 @@
+Dataset,Context features available,Residual features available,Selected maximum residual lag,Selected router features,Context design
+NN5 Daily,12,32,8,28,six 7/28-day history statistics; four model-prediction/disagreement features; sine/cosine weekday
+Pedestrian Hourly,14,32,16,46,six 24/168-hour history statistics; four model-prediction/disagreement features; sine/cosine hour and weekday
+M4 Hourly,14,32,16,46,six 24/168-hour history statistics; four model-prediction/disagreement features; sine/cosine hour and weekday
+Electricity Hourly,14,32,1,16,six 24/168-hour history statistics; four model-prediction/disagreement features; sine/cosine hour and weekday
+Weather Daily,14,32,8,30,six 7/28-day history statistics; four model-prediction/disagreement features; four prespecified variable-type indicators

@@ -1,0 +1,51 @@
+study_status: all_five_datasets_closed_no_further_model_changes
+primary_method: adaptive_full_router
+paper_positioning: coverage-controlled model routing with an explicit and audited
+  accuracy-coverage trade-off; not a state-of-the-art accuracy claim
+supported_primary_claims:
+- The adaptive controller satisfied the registered two-percentage-point coverage tolerance
+  on four of five datasets.
+- Its absolute coverage deviation was smaller than the static full router on all five
+  datasets.
+- 'This five-of-five direction is descriptive: the preregistered two-sided paired
+  Wilcoxon p-value was 0.0625, so it did not cross the 0.05 threshold with only five
+  blocks.'
+- The primary method's mean rank was 9.2 among all 14 methods and 7.2 among the 12
+  deployable methods.
+- Compared with static routing, adaptive routing improved RMSSE on 1 of 5 datasets
+  and had a mean relative RMSSE change of 0.639 percent.
+- The NN5 dataset is the registered coverage failure and must be reported as such;
+  the other four datasets passed.
+supported_secondary_claims:
+- Per-dataset paired inference, rather than the five-block omnibus, provides the main
+  uncertainty evidence because each dataset contains 66 to 500 paired series.
+- Weather Daily used a fixed type-stratified 500-series sample chosen without performance
+  information.
+- Every formal test was executed once after parameter and evaluator freezing, and
+  every dataset is cryptographically closed.
+unsupported_claims:
+- The proposed method achieved state-of-the-art forecasting accuracy.
+- The proposed method was the most accurate method across datasets.
+- The proposed method significantly outperformed all baselines across datasets.
+- The coverage constraint was satisfied on every dataset.
+- Adaptive routing significantly improved coverage over static routing in a confirmatory
+  two-sided five-dataset test.
+- Oracle methods are deployable competitors.
+- All 3010 Weather series were evaluated in the formal experiment.
+- Test results may be rerun, retuned, filtered, or replaced.
+mandatory_exceptions_and_limitations:
+- NN5 missed the target with Ridge coverage 0.668332 and absolute deviation 0.031668.
+- M4 Hourly passed narrowly with coverage 0.718746 and deviation 0.018746, close to
+  the 0.02 tolerance.
+- Adaptive routing ranked 12 of 14 on M4 Hourly and 10 of 14 on Electricity Hourly
+  and Weather Daily.
+- Only five dataset blocks were available, limiting power for cross-dataset pairwise
+  tests.
+- Weather conclusions apply to the preregistered 500-series sample, not automatically
+  to the complete 3010-series archive.
+recommended_title_direction: Residual-aware soft routing with adaptive coverage control
+  for time-series forecasting
+recommended_abstract_conclusion: Adaptive coverage control improved adherence to the
+  requested simple-model usage rate across heterogeneous datasets, while forecasting
+  accuracy remained competitive in some settings but was not uniformly superior, revealing
+  a measurable accuracy-control trade-off.

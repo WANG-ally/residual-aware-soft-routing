@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or its evidence package, please cite it using the
+  metadata below.
+title: >-
+  Residual-Aware Soft Routing with Adaptive Model-Usage Control for
+  Time-Series Forecasting
+type: software
+authors:
+  - family-names: Wang
+    given-names: Dongyang
+    affiliation: INTI International University
+abstract: >-
+  A reproducible implementation and compact evidence package for routing
+  causal one-step-ahead time-series forecasts between Ridge and LightGBM
+  under an adaptive target for simple-model usage.
+keywords:
+  - time-series forecasting
+  - model routing
+  - soft labels
+  - residual learning
+  - adaptive control
+  - reproducible machine learning
+license: MIT
+version: 1.0.0
+date-released: 2026-08-06

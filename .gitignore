@@ -1,0 +1,61 @@
+# macOS
+.DS_Store
+._*
+
+# Editor settings
+.vscode/
+.idea/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local environments
+.venv/
+venv/
+env/
+.conda/
+
+# Secrets and local environment variables
+.env
+.env.*
+!.env.example
+
+# Raw and processed datasets
+data/
+*.tsf
+*.zip
+*.parquet
+*.feather
+*.h5
+*.hdf5
+
+# Fitted models and large binary arrays
+models/
+*.joblib
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# Regenerable working outputs
+results/
+logs/
+*.log
+
+# Local historical source snapshot; not distributed
+supplement/frozen_code_archive/
+
+# Python packaging artifacts
+build/
+dist/
+*.egg-info/
+
+# Temporary Office files
+~$*.docx
+~$*.xlsx
+~$*.pptx

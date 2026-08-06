@@ -1,0 +1,115 @@
+study:
+  name: residual_aware_soft_routing
+  protocol_version: 1.1
+  seed: 20260714
+  primary_target_coverage: 0.70
+  sensitivity_target_coverages: [0.50, 0.90]
+
+data:
+  manifest: data_manifest.csv
+  core_datasets:
+    - m4_hourly
+    - nn5_daily
+    - pedestrian_hourly
+    - weather_daily
+    - electricity_hourly
+    - m4_daily
+  extended_datasets: [kdd_hourly, solar_10min]
+  limited_compute_samples:
+    m4_daily: 500
+    weather_daily: 500
+    electricity_hourly: 100
+  sample_seed: 20260714
+  minimum_series_length_after_cleaning: 200
+
+split:
+  chronological_ratios:
+    base_train: 0.60
+    router_train: 0.15
+    calibration: 0.10
+    test: 0.15
+  refit_on_test: false
+  test_access_count: 1
+
+preprocessing:
+  scale_from: base_train
+  scaler: median_iqr
+  missing_policy: use_archive_snapshot_and_report
+  window_by_frequency:
+    daily: [7, 14, 28, 56]
+    hourly: [24, 48, 168]
+    10_minutes: [144, 288]
+  choose_window_on: base_train_rolling_validation
+
+base_models:
+  simple:
+    name: ridge_autoregression
+    alpha_grid: [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0,  10000.0]
+  black_box:
+    name: lightgbm
+    num_leaves: [15, 31]
+    learning_rate: [0.03, 0.05]
+    n_estimators: [300, 600]
+    feature_fraction: [0.8, 1.0]
+  training_scope: one_model_pair_per_dataset_family
+  prediction_mode: frozen_parameters_causal_one_step
+
+soft_router:
+  target_loss: squared_error_scaled_by_base_train_seasonal_naive_mae
+  temperature_grid: [0.02, 0.05, 0.10, 0.20, 0.50]
+  residual_lag_grid: [1, 4, 8, 16]
+  model: l1_logistic_regression_via_soft_label_duplication
+  c_grid: [0.01, 0.1, 1.0, 10.0]
+
+local_weighting:
+  k_grid: [5, 11, 21]
+  alpha_grid: [0.0, 0.5, 1.0, 2.0]
+  maximum_multiplier: 5.0
+  fit_scope: router_train_only
+
+coverage_controller:
+  threshold_source: calibration_quantile
+  eta_grid: [0.001, 0.005, 0.01, 0.05]
+  bias_limit: 0.5
+  allowed_absolute_violation: 0.02
+
+baselines:
+  - seasonal_naive
+  - simple_only
+  - black_box_only
+  - equal_weight_average
+  - unconstrained_oracle
+  - coverage_constrained_oracle
+  - hard_aalf_like_router
+  - hard_logistic_same_features
+  - hard_random_forest_same_features
+  - soft_targets_only
+  - residual_features_only
+  - class_weight_only
+  - full_method
+
+evaluation:
+  primary_forecast_metric: RMSSE
+  secondary_forecast_metrics: [MASE, sMAPE, within_dataset_RMSE]
+  routing_metrics: [black_box_AUPRC, black_box_recall, Brier, ECE]
+  constraint_metrics: [simple_coverage, absolute_coverage_violation, worst_100_step_violation]
+  system_metrics: [oracle_regret, fit_seconds, predict_milliseconds, peak_memory_mb]
+
+statistics:
+  unit: series
+  random_seeds: 10
+  bootstrap_repetitions: 10000
+  confidence_level: 0.95
+  within_dataset_test: paired_wilcoxon
+  across_dataset_test: friedman_then_holm_corrected_pairwise
+  effect_size: rank_biserial_correlation
+  familywise_alpha: 0.05
+  noninferiority_margin_relative_RMSSE: 0.01
+
+outputs:
+  per_timestamp: results/per_timestamp_predictions.parquet
+  per_series: results/per_series_metrics.csv
+  aggregate: results/aggregate_metrics.csv
+  selected_ids: results/selected_series_ids.csv
+  exclusions: results/exclusion_log.csv
+  environment_lock: environment.lock.yml

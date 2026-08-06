@@ -1,0 +1,61 @@
+analysis_scope: five_closed_datasets
+dataset_count: 5
+dataset_ids:
+- nn5_daily
+- pedestrian_hourly
+- m4_hourly
+- electricity_hourly
+- weather_daily
+analysis_unit: dataset
+methods_in_accuracy_omnibus:
+- seasonal_naive
+- ridge_only
+- lightgbm_only
+- equal_weight_average
+- hard_aalf_like_router
+- hard_logistic_same_features
+- hard_random_forest_same_features
+- class_weight_only
+- soft_targets_only
+- residual_features_only
+- static_full_router
+- adaptive_full_router
+diagnostic_oracles_excluded_from_omnibus:
+- coverage_constrained_oracle
+- unconstrained_oracle
+friedman_statistic: 24.963610916725
+friedman_degrees_of_freedom: 11
+friedman_p_value: 0.009229149060451806
+friedman_kendall_w: 0.4538838348495454
+friedman_omnibus_significant_at_0_05: true
+holm_pairwise_family_size: 11
+holm_significant_primary_comparisons: []
+no_primary_pairwise_claim_due_to_small_dataset_count: true
+primary_method: adaptive_full_router
+primary_mean_official_rank_all_14: 9.2
+primary_mean_deployable_rank_12: 7.2
+primary_accuracy_rank_by_dataset_all_14:
+  nn5_daily: 9
+  pedestrian_hourly: 5
+  m4_hourly: 12
+  electricity_hourly: 10
+  weather_daily: 10
+primary_coverage_constraint_passes: 4
+primary_coverage_constraint_failures: 1
+coverage_failure_dataset: nn5
+primary_coverage_deviation_better_than_static_datasets: 5
+coverage_deviation_paired_wilcoxon_two_sided:
+  statistic: 0.0
+  p_value: 0.0625
+  confirmatory_significant_at_0_05: false
+coverage_deviation_exploratory_one_sided_p_value: 0.03125
+primary_accuracy_better_than_static_datasets: 1
+primary_mean_relative_RMSSE_cost_vs_static_percent: 0.6394034012007443
+primary_median_relative_RMSSE_cost_vs_static_percent: 0.2937422784940802
+interpretation: The adaptive controller consistently improved target adherence relative
+  to the static router, but did not establish cross-dataset accuracy superiority and
+  usually paid a small accuracy cost.
+raw_data_opened: false
+per_series_results_opened: false
+per_timestamp_predictions_opened: false
+models_loaded: false

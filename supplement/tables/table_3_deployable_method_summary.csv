@@ -1,0 +1,13 @@
+Method ID,Method,Proposed method,Mean official rank (of 14),Mean deployable rank (of 12),Geometric mean RMSSE (descriptive),Coverage-evaluable datasets,Coverage constraint passes,Mean absolute usage deviation
+hard_random_forest_same_features,Hard random forest (same features),False,3.6,1.6,0.6013270355155822,5,3,0.0229843934995274
+equal_weight_average,Equal-weight average,False,5.8,3.8,0.6543719231476975,0,0,
+hard_aalf_like_router,Hard AALF-like router,False,6.2,4.2,0.619291841236181,5,2,0.0270237093311983
+static_full_router,Static full router,False,8.0,5.9,0.6652239148315126,5,2,0.0297924242752354
+lightgbm_only,LightGBM only,False,8.0,6.0,0.7068780238882054,5,0,0.7
+soft_targets_only,Soft-targets only,False,8.8,6.9,0.6735029685825108,5,1,0.0303750613734704
+adaptive_full_router,Adaptive full router (proposed),True,9.2,7.2,0.6694478911543762,5,4,0.0103737339920487
+hard_logistic_same_features,Hard logistic (same features),False,9.2,7.2,0.6694369080020293,5,1,0.0336445885758327
+residual_features_only,Residual-features only,False,9.6,7.6,0.6323689362731457,5,2,0.0263175609266925
+class_weight_only,Class-weight only,False,10.0,8.0,0.670532126235529,5,1,0.0338315032749326
+ridge_only,Ridge only,False,11.0,9.0,0.6430915681516922,5,0,0.3
+seasonal_naive,Seasonal naive,False,12.6,10.6,0.9899462293935092,0,0,

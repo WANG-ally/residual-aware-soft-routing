@@ -1,0 +1,190 @@
+dataset_id: weather_daily
+sample_id: 5518ada55d6adb8a8df20f5a30d52ec904362ce57df9adeeceb0bc3d22854044
+role_in_study: completed_core_dataset_fixed_registered_sample
+formal_test_status: completed_once_and_locked
+formal_test_run_number: 1
+formal_test_rows: 1105774
+series_count: 500
+test_length_structure:
+  variable_length_series: true
+  minimum_days: 200
+  maximum_days: 8802
+  relative_time_points: 8802
+primary_method: adaptive_full_router
+primary_mean_RMSSE: 0.6919722073945873
+primary_rank_among_14_methods: 10
+target_simple_coverage: 0.7
+observed_simple_coverage: 0.7000417806893633
+absolute_coverage_violation: 4.1780689363335455e-05
+allowed_absolute_coverage_violation: 0.02
+coverage_constraint_passed: true
+static_full_router:
+  mean_RMSSE: 0.6899455456284898
+  rank: 8
+  simple_coverage: 0.6967472557683577
+  absolute_coverage_violation: 0.0032527442316422
+  coverage_constraint_passed: true
+hard_random_forest_same_features:
+  mean_RMSSE: 0.6793195598080554
+  rank: 4
+  simple_coverage: 0.6990225850851982
+  absolute_coverage_violation: 0.0009774149148017
+  coverage_constraint_passed: true
+lightgbm_only:
+  mean_RMSSE: 0.6743175640694049
+  rank: 3
+  simple_coverage: 0.0
+  coverage_constrained: false
+hard_aalf_like_router:
+  mean_RMSSE: 0.6883874013273267
+  rank: 7
+  simple_coverage: 0.6984799787298309
+  absolute_coverage_violation: 0.001520021270169
+  coverage_constraint_passed: true
+holm_and_bootstrap_support_better_than:
+- seasonal_naive
+- ridge_only
+holm_and_bootstrap_support_worse_than:
+- coverage_constrained_oracle
+- unconstrained_oracle
+- lightgbm_only
+- hard_random_forest_same_features
+- static_full_router
+- equal_weight_average
+- residual_features_only
+- soft_targets_only
+holm_significant_but_mean_bootstrap_discordant_or_inconclusive:
+- class_weight_only
+- hard_logistic_same_features
+noninferior_to_at_1_percent_by_wilcoxon_and_bootstrap:
+- ridge_only
+- soft_targets_only
+- static_full_router
+- class_weight_only
+- hard_logistic_same_features
+- hard_aalf_like_router
+key_pairwise_comparisons:
+- comparator: ridge_only
+  relative_difference_percent_primary_minus_comparator: -4.36689255761012
+  paired_bootstrap_ci_difference:
+  - -0.0357511974004145
+  - -0.0273956274134643
+  holm_adjusted_p_value: 8.691601778182995e-41
+  significant_after_holm: true
+  rank_direction: primary_better
+  bootstrap_mean_direction: primary_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: 0.7107951337200349
+  noninferior_at_1_percent_by_both_criteria: true
+- comparator: lightgbm_only
+  relative_difference_percent_primary_minus_comparator: 2.618149706592129
+  paired_bootstrap_ci_difference:
+  - 0.0153782362303976
+  - 0.0199348648733652
+  holm_adjusted_p_value: 3.430500804058885e-44
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.7281277445109781
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: equal_weight_average
+  relative_difference_percent_primary_minus_comparator: 1.4741909760609369
+  paired_bootstrap_ci_difference:
+  - 0.0073945000795175
+  - 0.0130032020658577
+  holm_adjusted_p_value: 9.874021197968758e-09
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.3112015968063872
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: hard_random_forest_same_features
+  relative_difference_percent_primary_minus_comparator: 1.8625472215325116
+  paired_bootstrap_ci_difference:
+  - 0.0100243600193683
+  - 0.0155614582310016
+  holm_adjusted_p_value: 1.694362870924865e-10
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.3456926147704591
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: static_full_router
+  relative_difference_percent_primary_minus_comparator: 0.2937422784940481
+  paired_bootstrap_ci_difference:
+  - 0.0015258727448564
+  - 0.002576472735527
+  holm_adjusted_p_value: 1.1310859054536227e-09
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.3474677707356317
+  noninferior_at_1_percent_by_both_criteria: true
+- comparator: hard_aalf_like_router
+  relative_difference_percent_primary_minus_comparator: 0.520754165510366
+  paired_bootstrap_ci_difference:
+  - 0.001076763001074
+  - 0.0065455812380845
+  holm_adjusted_p_value: 0.099344723741995
+  significant_after_holm: false
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: false
+  rank_biserial_primary_better: -0.0850618762475049
+  noninferior_at_1_percent_by_both_criteria: true
+supported_claims:
+- The adaptive controller achieved the registered 70 percent Ridge-coverage constraint
+  on the fixed Weather Daily sample.
+- Adaptive control reduced the static router's absolute coverage deviation from about
+  0.3253 to 0.0042 percentage points; both were inside the registered two-percentage-point
+  tolerance.
+- Aligned Holm-Wilcoxon and paired-bootstrap inference supported lower RMSSE than
+  seasonal naive and Ridge-only.
+- At the registered 1 percent margin, both inferential criteria supported noninferiority
+  to Ridge-only, soft-targets-only, static-full-router, class-weight-only, hard-logistic,
+  and AALF-like routing.
+- Aligned inference favored LightGBM-only, the random-forest router, static routing,
+  equal-weight averaging, residual-only routing, and soft-target routing over adaptive
+  routing in RMSSE.
+- Relative to the static router, adaptive control moved coverage closer to target
+  while increasing mean RMSSE by about 0.29 percent.
+unsupported_claims:
+- The proposed method was the most accurate method on Weather Daily.
+- The proposed method outperformed LightGBM-only, the random-forest router, the static
+  router, equal-weight averaging, residual-only routing, or soft-target routing.
+- The proposed method was directionally superior to class-weight-only or hard-logistic
+  routing; the registered rank and mean-bootstrap rules were discordant or inconclusive.
+- The random-forest, static, AALF-like, or residual-only router failed the registered
+  coverage tolerance; all satisfied the two-point rule.
+- The 500 registered Weather series represent a performance-selected sample.
+- Coverage-constrained or unconstrained oracle results represent deployable forecasting
+  methods.
+required_reporting:
+- Report rank 10 of 14, mean RMSSE 0.691972, Ridge coverage 0.700042, absolute coverage
+  deviation 0.000042, and the passed coverage constraint.
+- Report that LightGBM-only ranked 3 with mean RMSSE 0.674318 and was supported as
+  more accurate, while having zero Ridge coverage.
+- Report that the random-forest router ranked 4 with mean RMSSE 0.679320, Ridge coverage
+  0.699023, passed the tolerance, and was supported as more accurate than adaptive
+  routing.
+- Report that the static router had mean RMSSE 0.689946 and Ridge coverage 0.696747;
+  it passed the tolerance and was supported as more accurate than adaptive control.
+- Report inference discordance or uncertainty for class-weight-only and hard-logistic
+  routing.
+- Present oracle methods as post-hoc diagnostic lower bounds only.
+- State that the Weather archive was reduced to a fixed, type-stratified 500-series
+  sample before performance analysis.
+- Do not rerun, retune, replace sampled series, or exclude Weather Daily after observing
+  the formal test.
+raw_test_data_reopened_for_closeout: false
+per_timestamp_predictions_reopened_for_closeout: false
+per_series_metrics_reopened_for_closeout: false
+models_loaded_for_closeout: false
+parameters_changed_after_test: false
+formal_test_authorization_id: f30c7263b9eca0af2d6a34bd102a9c0f131f9645ba76b7b8c68ec098a2fcff35
+final_freeze_id: 004d19955e8b92b9b4fd3c9ee43732a75cf5d0a48bfe1bfd828bb13113c15cf1
+evaluator_sha256: 87d8781850a74ad711273e26c4f607ad6c28377901d9fd1cdbf27da8a6233b0a

@@ -1,0 +1,5 @@
+Analysis,Statistic,p-value,Multiplicity,Interpretation
+Friedman omnibus across 12 deployable methods,24.963610916725,0.009229149060451806,Omnibus test,Overall method differences detected
+Primary pairwise family after Friedman,,,Holm correction across 11 comparisons,No proposed-method comparison significant
+Adaptive vs static absolute usage deviation,0.0,0.0625,Preregistered two-sided Wilcoxon; 5 blocks,Five-of-five direction; not confirmatory at 0.05
+Adaptive vs static usage deviation (exploratory),,0.03125,Exploratory one-sided Wilcoxon,Report only as exploratory

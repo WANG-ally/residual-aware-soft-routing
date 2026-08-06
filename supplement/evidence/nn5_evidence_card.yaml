@@ -1,0 +1,88 @@
+dataset_id: nn5_daily
+role_in_study: completed_pilot_dataset
+formal_test_status: completed_once_and_locked
+formal_test_run_number: 1
+formal_test_rows: 13209
+series_count: 111
+time_points: 119
+primary_method: adaptive_full_router
+primary_mean_RMSSE: 0.7726891000270169
+primary_rank_among_14_methods: 9
+target_simple_coverage: 0.7
+observed_simple_coverage: 0.6683321977439625
+absolute_coverage_violation: 0.0316678022560374
+coverage_constraint_passed: false
+significantly_better_than:
+- seasonal_naive
+- ridge_only
+- residual_features_only
+- hard_logistic_same_features
+- class_weight_only
+significantly_worse_than:
+- coverage_constrained_oracle
+- unconstrained_oracle
+- equal_weight_average
+- lightgbm_only
+- hard_random_forest_same_features
+noninferior_to_at_1_percent_margin:
+- soft_targets_only
+- static_full_router
+- hard_logistic_same_features
+- class_weight_only
+- residual_features_only
+- ridge_only
+- hard_aalf_like_router
+- hard_random_forest_same_features
+key_pairwise_comparisons:
+- comparator: ridge_only
+  relative_difference_percent_primary_minus_comparator: -1.1091996296922353
+  holm_adjusted_p_value: 0.0011239154701611
+  significant_after_holm: true
+  direction: primary_better
+  rank_biserial_primary_better: 0.4163449163449163
+- comparator: lightgbm_only
+  relative_difference_percent_primary_minus_comparator: 1.0730634839820627
+  holm_adjusted_p_value: 0.0001300470206413
+  significant_after_holm: true
+  direction: comparator_better
+  rank_biserial_primary_better: -0.4742599742599742
+- comparator: equal_weight_average
+  relative_difference_percent_primary_minus_comparator: 1.815437897392579
+  holm_adjusted_p_value: 1.1167387380406124e-12
+  significant_after_holm: true
+  direction: comparator_better
+  rank_biserial_primary_better: -0.8120978120978121
+- comparator: hard_random_forest_same_features
+  relative_difference_percent_primary_minus_comparator: 0.6170143080007279
+  holm_adjusted_p_value: 0.0195485708091373
+  significant_after_holm: true
+  direction: comparator_better
+  rank_biserial_primary_better: -0.3217503217503217
+- comparator: static_full_router
+  relative_difference_percent_primary_minus_comparator: 0.055046938961986
+  holm_adjusted_p_value: 0.5458579628158895
+  significant_after_holm: false
+  direction: comparator_better
+  rank_biserial_primary_better: -0.1472894078398665
+supported_claims:
+- The adaptive full router significantly improves over Ridge on NN5.
+- The adaptive controller moves simple-model coverage closer to 70 percent than the
+  static router.
+- The full router is noninferior to the random-forest router under the preregistered
+  1 percent margin.
+unsupported_claims:
+- The proposed method is the most accurate method on NN5.
+- The proposed method outperforms LightGBM or equal-weight averaging on NN5.
+- The proposed method satisfies the preregistered NN5 test coverage tolerance.
+- Adaptive control improves NN5 test RMSSE over the static router.
+required_reporting:
+- Report rank 9 of 14 and the failed coverage constraint.
+- Report both statistically favorable and unfavorable comparisons.
+- Do not retune, rerun, or exclude NN5 after observing the formal test.
+- Treat NN5 as one dataset; do not generalize until additional domains are completed.
+raw_test_data_reopened_for_closeout: false
+models_loaded_for_closeout: false
+parameters_changed_after_test: false
+formal_test_authorization_id: 0176f35bc1538cedbcbb1ff07f494bc4f09a39a6664301658475e69cc15aaaee
+final_freeze_id: 3e2d145da23e142bf861fc929775a2276ec669526572c5f1a834598f92df8d97
+evaluator_sha256: cfe683db9fd410bce1273f0780db81e7a2112f6e133005ce8952b2f59c7326cb

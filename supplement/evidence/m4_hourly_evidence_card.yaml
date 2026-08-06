@@ -1,0 +1,147 @@
+dataset_id: m4_hourly
+role_in_study: completed_core_dataset
+formal_test_status: completed_once_and_locked
+formal_test_run_number: 1
+formal_test_rows: 56337
+series_count: 414
+variable_length_relative_time_points: 152
+primary_method: adaptive_full_router
+primary_mean_RMSSE: 1.0820091996106491
+primary_rank_among_14_methods: 12
+target_simple_coverage: 0.7
+observed_simple_coverage: 0.7187461171166374
+absolute_coverage_violation: 0.0187461171166374
+allowed_absolute_coverage_violation: 0.02
+coverage_constraint_passed: true
+static_full_router:
+  mean_RMSSE: 1.0555032182120154
+  simple_coverage: 0.7465076237641337
+  absolute_coverage_violation: 0.0465076237641337
+  coverage_constraint_passed: false
+hard_random_forest_same_features:
+  mean_RMSSE: 0.6928834180499295
+  rank: 3
+  simple_coverage: 0.7340823970037453
+  absolute_coverage_violation: 0.0340823970037453
+  coverage_constraint_passed: false
+holm_and_bootstrap_support_better_than:
+- lightgbm_only
+- soft_targets_only
+holm_and_bootstrap_support_worse_than:
+- coverage_constrained_oracle
+- unconstrained_oracle
+- hard_random_forest_same_features
+- hard_aalf_like_router
+- residual_features_only
+- ridge_only
+- static_full_router
+- equal_weight_average
+- hard_logistic_same_features
+holm_significant_but_mean_bootstrap_discordant_or_inconclusive:
+- seasonal_naive
+noninferior_to_at_1_percent_by_wilcoxon_and_bootstrap:
+- soft_targets_only
+- lightgbm_only
+key_pairwise_comparisons:
+- comparator: ridge_only
+  relative_difference_percent_primary_minus_comparator: 41.89902475394274
+  paired_bootstrap_ci_difference:
+  - 0.2444237698818359
+  - 0.3983789852389219
+  holm_adjusted_p_value: 1.0079223839176859e-10
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.3817822012688435
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: lightgbm_only
+  relative_difference_percent_primary_minus_comparator: -21.619234199177875
+  paired_bootstrap_ci_difference:
+  - -0.3496996744748035
+  - -0.250506034313988
+  holm_adjusted_p_value: 4.691733706415916e-23
+  significant_after_holm: true
+  rank_direction: primary_better
+  bootstrap_mean_direction: primary_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: 0.5731563936907048
+  noninferior_at_1_percent_by_both_criteria: true
+- comparator: equal_weight_average
+  relative_difference_percent_primary_minus_comparator: 7.809454322163263
+  paired_bootstrap_ci_difference:
+  - 0.0417345839893685
+  - 0.1174104513703155
+  holm_adjusted_p_value: 0.0002964531034608
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.2247482684360631
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: hard_random_forest_same_features
+  relative_difference_percent_primary_minus_comparator: 56.16035416980919
+  paired_bootstrap_ci_difference:
+  - 0.3109593617440953
+  - 0.4699836205590528
+  holm_adjusted_p_value: 4.830932407624504e-46
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.8173563820499389
+  noninferior_at_1_percent_by_both_criteria: false
+- comparator: static_full_router
+  relative_difference_percent_primary_minus_comparator: 2.5112174876675617
+  paired_bootstrap_ci_difference:
+  - 0.0197960883064442
+  - 0.0338249630313663
+  holm_adjusted_p_value: 8.057101303273047e-08
+  significant_after_holm: true
+  rank_direction: comparator_better
+  bootstrap_mean_direction: comparator_better
+  holm_and_bootstrap_support_direction: true
+  rank_biserial_primary_better: -0.3247426479620667
+  noninferior_at_1_percent_by_both_criteria: false
+supported_claims:
+- The adaptive controller achieved the registered 70 percent Ridge-coverage constraint
+  on M4 Hourly.
+- Adaptive control reduced the static router's absolute coverage violation from 4.6508
+  to 1.8746 percentage points, bringing the adaptive method inside the registered
+  tolerance.
+- The adaptive full router had lower mean RMSSE than LightGBM-only and soft-targets-only,
+  with aligned Holm-Wilcoxon and paired-bootstrap support.
+- At the registered 1 percent margin, both inferential criteria supported noninferiority
+  only to LightGBM-only and soft-targets-only among the registered non-oracle comparators.
+- Relative to the static full router, adaptive control improved coverage compliance
+  but increased mean RMSSE by about 2.51 percent, demonstrating an accuracy-coverage
+  trade-off.
+unsupported_claims:
+- The proposed method was the most accurate method on M4 Hourly.
+- The proposed method outperformed Ridge, equal-weight averaging, the random-forest
+  router, the AALF-like router, or the static full router.
+- The proposed method was noninferior to Ridge, equal-weight averaging, the random-forest
+  router, or the static full router at the registered 1 percent margin.
+- The adaptive method was directionally superior to seasonal naive; its Holm-Wilcoxon
+  and mean-bootstrap conclusions were discordant, so no directional claim is supported.
+- Coverage-constrained or unconstrained oracle results represent deployable forecasting
+  methods.
+required_reporting:
+- Report rank 12 of 14, mean RMSSE 1.082009, Ridge coverage 0.718746, absolute coverage
+  deviation 0.018746, and the passed coverage constraint.
+- Report that the random-forest router ranked 3 with mean RMSSE 0.692883 but failed
+  the coverage tolerance with deviation 0.034082.
+- Report that the static full router had lower mean RMSSE 1.055503 but failed the
+  coverage tolerance, whereas adaptive control passed it at an accuracy cost.
+- Report the seasonal-naive discordance between the Holm-Wilcoxon rank result and
+  the bootstrap interval for the mean difference.
+- Present oracle methods as post-hoc diagnostic lower bounds only.
+- Do not rerun, retune, or exclude M4 Hourly after observing the formal test.
+raw_test_data_reopened_for_closeout: false
+per_timestamp_predictions_reopened_for_closeout: false
+per_series_metrics_reopened_for_closeout: false
+models_loaded_for_closeout: false
+parameters_changed_after_test: false
+formal_test_authorization_id: e69bce60cdf15e5007baf63ae1e2e84c887dbd3e72362d462ade6ce78f6bdb46
+final_freeze_id: 754e41679402bac7e7e987d29af5a9ac212ed869d71ef0d4c7c271a5bcbfebe6
+evaluator_sha256: 8adc038fd32595de63db88865106efc7d0805cf0228569d2ea2c627ca1faae3c

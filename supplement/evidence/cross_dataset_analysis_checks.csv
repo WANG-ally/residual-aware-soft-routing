@@ -1,0 +1,16 @@
+check,passed,detail
+nn5_daily_closeout_chain_valid,True,status=CLOSED_NO_FURTHER_MODEL_CHANGES; files=17; hashes=True
+nn5_daily_aggregate_matches_evidence_card,True,RMSSE=0.772689; rank=9; coverage=0.668332
+pedestrian_hourly_closeout_chain_valid,True,status=CLOSED_NO_FURTHER_MODEL_CHANGES; files=21; hashes=True
+pedestrian_hourly_aggregate_matches_evidence_card,True,RMSSE=0.398511; rank=5; coverage=0.701375
+m4_hourly_closeout_chain_valid,True,status=CLOSED_NO_FURTHER_MODEL_CHANGES; files=21; hashes=True
+m4_hourly_aggregate_matches_evidence_card,True,RMSSE=1.082009; rank=12; coverage=0.718746
+electricity_hourly_closeout_chain_valid,True,status=CLOSED_NO_FURTHER_MODEL_CHANGES; files=21; hashes=True
+electricity_hourly_aggregate_matches_evidence_card,True,RMSSE=0.583202; rank=10; coverage=0.700038
+weather_daily_closeout_chain_valid,True,status=CLOSED_NO_FURTHER_MODEL_OR_SAMPLE_CHANGES; files=21; hashes=True
+weather_daily_aggregate_matches_evidence_card,True,RMSSE=0.691972; rank=10; coverage=0.700042
+five_dataset_aggregate_matrix_complete,True,"shape=(70, 23); datasets=5"
+all_official_method_ranks_reproduced,True,maximum_difference=0.000e+00
+preregistered_friedman_and_holm_analysis_complete,True,Friedman=24.963611; p=0.00922915; pairwise=11
+primary_coverage_summary_reproduced,True,passes=4/5; better_than_static=5/5; mean_rank=9.200
+synthesis_did_not_open_detailed_test_results_or_models,True,"only closeout manifests, evidence cards, and aggregate tables parsed"
