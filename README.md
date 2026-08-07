@@ -68,6 +68,11 @@ Weather Daily results apply only to the deterministic, preregistered
 500-series sample identified by SHA-256
 `5518ada55d6adb8a8df20f5a30d52ec904362ce57df9adeeceb0bc3d22854044`.
 
+The exact registered sample is provided in
+[`supplement/evidence/weather_daily_sample_manifest.csv`](supplement/evidence/weather_daily_sample_manifest.csv).
+The manifest contains the 500 selected series identifiers and the deterministic
+selection metadata used to verify the registered sample.
+
 Archive URLs, filenames, MD5 values, licenses, and provenance notes are recorded
 in [`data_manifest.csv`](data_manifest.csv).
 
@@ -176,6 +181,8 @@ formal test predictions, or regenerable working logs.
 - `supplement/tables/table_1_*.csv` through `table_8_*.csv`: manuscript tables;
 - `figures/cross_dataset_performance_and_coverage.png`: main cross-dataset figure;
 - `figures/*_statistical_comparison.png`: dataset-level statistical figures.
+- `supplement/evidence/weather_daily_sample_manifest.csv`: exact registered
+  500-series Weather Daily sample and deterministic selection metadata;
 
 These artifacts are compact read-only outputs. Large intermediate Parquet
 files, fitted models, raw archives, and one-time test predictions are excluded.
